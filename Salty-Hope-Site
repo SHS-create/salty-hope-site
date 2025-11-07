@@ -1,0 +1,136 @@
+salty-hope-website/
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js
+│   ├── index.js
+│   ├── components/
+│   │   ├── HeroSection.js
+│   │   ├── AboutUs.js
+│   │   ├── Services.js
+│   │   ├── Booking.js
+│   │   └── Footer.js
+└── README.md
+{
+  "name": "salty-hope-website",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  }
+}
+import React from 'react';
+import HeroSection from './components/HeroSection';
+import AboutUs from './components/AboutUs';
+import Services from './components/Services';
+import Booking from './components/Booking';
+import Footer from './components/Footer';
+
+export default function App() {
+  return (
+    <div className="font-sans">
+      <HeroSection />
+      <AboutUs />
+      <Services />
+      <Booking />
+      <Footer />
+    </div>
+  );
+}
+import React from 'react';
+
+export default function HeroSection() {
+  return (
+    <section className="relative bg-gradient-to-b from-blue-50 to-white h-screen flex flex-col justify-center items-center text-center">
+      <h1 className="text-5xl font-serif font-bold mb-6 text-gray-800">Salty Hope Sanctuary</h1>
+      <p className="text-xl mb-8 text-gray-600">
+        Restore Balance. Breathe Easier.<br/>
+        Control Your Mind — or It Will Control You.
+      </p>
+      <a href="#booking" className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600 transition">Book Your Session</a>
+    </section>
+  );
+}
+import React from 'react';
+
+export default function AboutUs() {
+  return (
+    <section className="py-20 px-8 bg-white" id="about">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-serif font-bold mb-6 text-gray-800">Our Story & Mission</h2>
+        <p className="text-gray-600 mb-4">
+          Salty Hope Sanctuary was founded and is operated by [Your Name], a seasoned wellness entrepreneur dedicated to creating a serene, restorative space where individuals and families can recharge, breathe easier, and nurture their well-being.
+        </p>
+        <p className="text-gray-600 mb-4">
+          We partner with a licensed Nurse Practitioner who visits twice a month to provide educational workshops and wellness talks, ensuring evidence-based insights for our clients.
+        </p>
+        <p className="text-gray-600">
+          Our philosophy: mind and body are connected, and true wellness comes from intentional care, education, and community.
+        </p>
+      </div>
+    </section>
+  );
+}
+import React from 'react';
+
+export default function Services() {
+  const services = [
+    { title: 'Salt Therapy (Halotherapy)', description: 'Active halotherapy in a salt chamber with pharmaceutical-grade sodium chloride delivered via halogenerator.' },
+    { title: 'Infrared Sauna', description: 'Relax, detoxify, and recharge with targeted infrared heat therapy.' },
+    { title: 'Wellness Workshops', description: 'Educational sessions twice per month led by our licensed NP partner.' },
+    { title: 'Membership Packages', description: 'Tiered memberships for unlimited or discounted sessions, family plans, and corporate wellness.' },
+  ];
+
+  return (
+    <section className="py-20 px-8 bg-gray-50" id="services">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl font-serif font-bold mb-12 text-gray-800">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {services.map((service, index) => (
+            <div key={index} className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold mb-4 text-gray-800">{service.title}</h3>
+              <p className="text-gray-600 mb-4">{service.description}</p>
+              <a href="#booking" className="text-blue-500 hover:underline">Book Now</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+import React from 'react';
+
+export default function Booking() {
+  return (
+    <section className="py-20 px-8 bg-white" id="booking">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-serif font-bold mb-6 text-gray-800">Book Your Session</h2>
+        <p className="text-gray-600 mb-8">
+          Schedule your salt therapy, infrared sauna, or wellness workshop. Choose your date and time below.
+        </p>
+        <a href="https://www.mindbodyonline.com/" target="_blank" className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600 transition">
+          Book Online
+        </a>
+      </div>
+    </section>
+  );
+}
+import React from 'react';
+
+export default function Footer() {
+  return (
+    <footer className="bg-gray-800 text-white py-10 px-8 text-center">
+      <p>&copy; {new Date().getFullYear()} Salty Hope Sanctuary. All rights reserved.</p>
+      <p>Laurel, MD | saltyhopesanctuary@yahoo.com | (XXX) XXX-XXXX</p>
+    </footer>
+  );
+}
